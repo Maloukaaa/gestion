@@ -1,0 +1,39 @@
+
+<form  [formGroup]="formShow" (ngSubmit)="onSubmit(formShow.value)" class="col-md-12">
+  <div class="row form-group">
+     
+          <div class="col-md-2 ">
+                  <label for="keyword" style="font-weight: bold;font-size: 14px;">KeyWord</label>
+          </div>
+          <div class="form-group col-md-4">
+                           
+            <ejs-combobox [(value)]='keywordVal' [dataSource]='list' [enabled]=false  [fields]=fields allowCustom=true placeholder = 'Select a game'></ejs-combobox>            
+                             </div>
+
+          <div class="col-md-2 ">
+              <label for="value" style="font-weight: bold;font-size: 14px;">Value</label>
+      </div>
+      <div class="col-md-4">
+           <input  [formControl]="value"  type="text" class="form-control form-group" id="value" >
+        <!--  <div *ngIf="formAdd.controls.email.hasError('pattern') && formAdd.controls.email.touched" class="invalid-feedback">
+                  <div *ngIf="formAdd.controls.email.hasError('pattern') && formAdd.controls.email.touched"  style="font-weight: bold;font-size: medium;">{{"CM.emailValid" | translate}}</div>
+              </div>--> 
+      </div>
+      </div>
+   
+
+<div style="text-align: center">
+              
+      <button type="submit" class="btn btn-primary w-100p mb-1 mr-1">Modifer</button>
+      <button type="button" (click)="previousState()" class="btn btn-secondary  w-100p mb-1 mr-1">Cancel</button>
+  </div>
+ 
+
+
+
+
+
+
+      
+</form>
+

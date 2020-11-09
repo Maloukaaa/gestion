@@ -1,0 +1,48 @@
+
+
+<button type="button" class="btn btn-info btn-lg" (click)="openModal()">click to open</button>
+
+
+    <div class="backdrop" [ngStyle]="{'display':display}"  style=" background-color: #a8acac94;"></div>
+    <div id="sampleModal" class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}" >
+    
+        
+<!--           <h4 class="modal-title" style="color:white;">{{"CM.import" | translate}}</h4>
+                   <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()" style="margin-top:-21px;"><div aria-hidden="true" style="margin-top: 10px;color: black;margin-right: 14px;opacity: 10;">&times;</div></button>
+                </div>
+          <div class="modal-body">--> 
+
+            <div class="d-flex justify-content-center align-items-center w-100 h-100 error-container">
+              <div class="col-xl-4 col-md-6 col-10">
+                  <div class="card border-0 box-shadow rounded-0">
+                      <div class="card-header d-flex justify-content-center align-items-center border-0 box-shadow">
+                          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                      </div>
+                      <div class="card-body text-center">
+          
+                          <h1 class="display-1">404</h1>
+                          <h6 class="card-title">Opps, it seems that this page does not exist.</h6>
+                          <p class="card-text"> If you are sure it should, search for it.</p>
+          
+                          <form method="get">
+                              <div class="form-group">
+                                  <input class="form-control" placeholder="Enter search keyword..." type="text">
+                              </div>
+                              <div class="form-group">
+                                  <button class="btn" type="button" (click)="searchResult()"><i class="fa fa-search"></i> Submit</button>
+                              </div>
+                          </form>
+                       
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+
+
+
+
+</div>
+
+
+

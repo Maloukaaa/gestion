@@ -1,0 +1,266 @@
+
+
+<!-- open a modal window by clicking button  basic bootstrap-->
+
+
+<!--<button type="button" class="btn btn-info btn-lg" (click)="openModal()">click to open</button>-->
+
+
+
+
+<form  [formGroup]="formImport" (ngSubmit)="onSubmit(formImport.value)" class="col-md-12">
+<div class="backdrop" [ngStyle]="{'display':display}"  style=" background-color: #a8acac94;"></div>
+<div id="sampleModal" class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}" >
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 217%;margin-left: -187px;margin-top:65px;">
+		dal-header-pr
+			<div class="modal-header moimary theme green" id="header" >
+        <h4 class="modal-title" style="color:white;">{{"CM.import" | translate}}</h4>
+               <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()" style="margin-top:-21px;"><div aria-hidden="true" style="margin-top: 10px;color: black;margin-right: 14px;opacity: 10;">&times;</div></button>
+            </div>
+      <div class="modal-body">
+          <div [style.display]="displayStep1" class="row" style="letter-spacing: 1px;background-color: #f0deeee3;margin-top: -15px;width: 54%;font-weight: bold;margin-left: 522px; border-bottom-left-radius: 100px;border-top-left-radius: 6px;height: 39px;color: #0da9bd;font-size: 13.8px;padding-left: 64px; padding-top:7px">
+      {{'CM.importInfo'|translate}} 
+        <button type="button"  placement="top" ngbTooltip="Aide"
+        style="width: 36px;height: 0px;float: right;margin-top: -3px;border: none;margin-right: 33px;opacity: 8;background-color: #f0deee;"  (click)="isCollapsed = !isCollapsed"[attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+    <i class="fa fa-info-circle fa-2x" style="color: #0da9bd;"></i>
+</button>
+         
+    
+  </div>
+            <div >
+                <div id="step1" class="row" [style.display]="displayStep1" >
+                    <ngx-spinner
+                    bdOpacity = 1
+                    bdColor = "rgba(165,170,171,0.81)"
+                    size = "medium"
+                    color = "#07a5ba"
+                    type = "ball-spin-fade"
+                    [fullScreen] = "true"
+                    >
+                    <p style="color: white;font-size:medium" >{{'CM.Loading' | translate}} </p>
+                    </ngx-spinner>
+         <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true" style="margin-top: 10px;color: #3bb4c7;font-size: 14px;letter-spacing: 1px;padding-top: 10px;">
+            <div class="well well-lg card card-block card-header"Style="background: #f0deee78;width: 96%;padding-top: 10px;margin-left: 35px;">
+             <span clas="row">
+                nom,email,organisme,profession,domaineDactivite,adresse,codePostal,datePContact,fax,matriculeFiscale,siteWeb,telBureau,ville,contactType,codeDouane,secteurDactivite,isTest,isActive,comment
+             </span>
+             <span clas="row">
+                Meg,mdow@indiego.com,disney,createur,Informatique,41 Ridgeview Court,2469,2019-03-23,374-428-8379,c1d06c83-06a8,http://ovh.net/ut/odio/cras.png,71 100 100,Néo Psychikó,Client,8ecec2af-83a0,privé,false,true,nulla eget eros elementum
+              </span>
+                </div>
+              </div>
+         
+            <div class="col-md-2 " style="padding-top: 15px;">
+                <label for="adresse" style="font-weight: bold;font-size: 14px;">Contacts</label>
+            </div>
+          <div class="col-md-10" style="padding-top: 15px;">
+            
+            <textarea [formControl]="importField" class="form-control" rows="10" placeholder="{{'CM.placeI'|translate}}" ></textarea>
+          
+          </div>
+      
+        </div>
+     
+        <div id="step2" [style.display]="displayStep2">
+            <ngx-spinner
+            bdOpacity = 1
+            bdColor = "rgba(165,170,171,0.81)"
+            size = "medium"
+            color = "#07a5ba"
+            type = "ball-spin-fade"
+            [fullScreen] = "true"
+            >
+            <p style="color: white;font-size:medium" > {{'CM.Loading' | translate}} </p>
+            </ngx-spinner>
+          <div class="col-md-12" >
+             
+              <mat-list [style.display]="NodisplayErrHeader">
+                  <mat-list-item style="font-size: 20px;font-weight: bolder;">{{"CM.detailsI"|translate}}</mat-list-item>
+                   <mat-divider style="width: 400%;" ></mat-divider>
+                   <mat-list-item style="margin-left:20px">{{'CM.Eincorrects' | translate}} {{importFieldPreData1}} </mat-list-item>
+                   <mat-divider style="width: 400%;" ></mat-divider>
+                   <mat-list-item style="margin-left:20px">{{'CM.Ecorrects' | translate}} {{importFieldPreData3}}</mat-list-item>
+                   <mat-divider style="width: 400%;"></mat-divider>
+                   <br>
+              </mat-list>
+              <mat-list [style.display]="displayErrHeader">
+                  <mat-list-item style="font-size: 20px;font-weight: bolder;">{{"CM.detailsI"|translate}}</mat-list-item>
+                   <mat-divider ></mat-divider>
+                   <mat-list-item style="margin-left:20px"> {{'CM.Eincorrects' | translate}} {{importFieldPreData1}} </mat-list-item>
+                   <mat-divider ></mat-divider>
+                   <mat-list-item style="margin-left:20px"> {{'CM.Ecorrects' | translate}} {{importFieldPreData3}}</mat-list-item>
+                   <mat-divider ></mat-divider>
+                   <br>
+                 <mat-accordion  (open)="true"   multi="false">
+               
+                 <mat-expansion-panel  style="margin-left:30px;" (opened)="panelOpenState = true"
+                                      (closed)="panelOpenState = false">
+                   <mat-expansion-panel-header style="background: rgba(255, 0, 0, 0.46);">
+                     <mat-panel-title style="font-weight:bolder;font-size:20px">
+               {{'CM.ErreurM'|translate}}
+                     </mat-panel-title>
+                    
+                   </mat-expansion-panel-header>
+            <br>
+                   <dx-data-grid 
+                   id="headerErreurMSG"
+                   [dataSource]="headerErreurMSG"
+                   [remoteOperations]="true"
+                   [allowColumnReordering]="true"
+                   [rowAlternationEnabled]="true"
+                   [showBorders]="true"    
+                   [showColumnLines]="true"
+                    [showRowLines]="true"
+             
+                   columnResizingMode="widget"
+                   [allowColumnResizing]="true"
+                   [rowAlternationEnabled]="true"
+                   [columnHidingEnabled]="true"
+                  
+                >
+                <dxo-header-filter [visible]="true"></dxo-header-filter>
+                   
+                   <dxo-filter-row [visible]="true"  [applyFilter]="true"></dxo-filter-row>
+                   <dxo-sorting mode="multiple"></dxo-sorting>
+                   <dxi-column [width]="70" dataField="ligne" caption="{{ 'CM.ligne' | translate }}"  [visible]="true"  dataType="number" alignment="right" [allowHeaderFiltering]="false"></dxi-column>
+                   <dxi-column dataField="headerV" caption="{{ 'CM.headerv' | translate }}" [visible]="true"   dataType="string" [allowHeaderFiltering]="false" ></dxi-column>
+                   <dxi-column dataField="value" caption="{{ 'CM.values' | translate }}" [visible]="true"   dataType="string" [allowHeaderFiltering]="false" ></dxi-column>
+                   <dxi-column dataField="Evalue" caption="{{ 'CM.ErreurV' | translate }}" [visible]="true" dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+                   <dxi-column dataField="msg" caption="{{ 'CM.ErreurM' | translate }}"[visible]="true"  dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+                  
+                 
+                     <dxo-paging [pageSize]="5"></dxo-paging>
+                 <!--    <dxo-pager  infoText="{{ 'CM.infoText' | translate }}" [showPageSizeSelector]="true" [visible]="true" [allowedPageSizes]="[10, 50, 100]" [showInfo]="true"></dxo-pager>
+                    -->
+               </dx-data-grid>
+                 </mat-expansion-panel>
+               </mat-accordion>
+               <br>
+                 <mat-divider  [style.display]="displayErrHeader"></mat-divider>
+               
+                  
+               </mat-list>
+            </div>
+        
+            
+  
+				</div>
+				<div id="step3" [style.display]="displayStep3">
+            <ngx-spinner
+            bdOpacity = 1
+            bdColor = "rgba(165,170,171,0.81)"
+            size = "medium"
+            color = "#07a5ba"
+            type = "ball-spin-fade"
+            [fullScreen] = "true"
+            >
+            <p style="color: white;font-size:medium" > {{'CM.Loading' | translate}} </p>
+            </ngx-spinner>
+          <div class="col-md-12">
+
+              <mat-list [style.display]="NodisplayErrHeader">
+                  <mat-list-item style="font-size: 20px;font-weight: bolder;">{{"CM.detailsI"|translate}}</mat-list-item>
+                   <mat-divider style="width: 400%;" ></mat-divider>
+                   <mat-list-item style="margin-left:20px">{{'CM.Enonsauvegarde'|translate}} {{importFieldData1}} </mat-list-item>
+                   <mat-divider style="width: 400%;" ></mat-divider>
+                   <mat-list-item style="margin-left:20px">{{'CM.Esauvegarde'|translate}} {{importFieldData3}}</mat-list-item>
+                   <mat-divider style="width: 400%;" ></mat-divider>
+                   <br>
+              </mat-list>
+              <mat-list [style.display]="displayErrHeader">
+                  <mat-list-item style="font-size: 20px;font-weight: bolder;">{{"CM.detailsI"|translate}}</mat-list-item>
+                   <mat-divider ></mat-divider>
+                   <mat-list-item style="margin-left:20px">{{'CM.Enonsauvegarde'|translate}} {{importFieldData1}} </mat-list-item>
+                   <mat-divider ></mat-divider>
+                   <mat-list-item style="margin-left:20px">{{'CM.Esauvegarde'|translate}} {{importFieldData3}}</mat-list-item>
+                   <mat-divider ></mat-divider>
+                   <br>
+                 <mat-accordion  (open)="true"   multi="false">
+               
+                 <mat-expansion-panel  style="margin-left:30px;" (opened)="panelOpenState = true"
+                                      (closed)="panelOpenState = false">
+                   <mat-expansion-panel-header style="background: rgba(255, 0, 0, 0.46);">
+                     <mat-panel-title style="font-weight:bolder;font-size:20px">
+                        {{'CM.ErreurM'|translate}}
+                     </mat-panel-title>
+                    
+                   </mat-expansion-panel-header>
+            
+                   <br>
+                   <dx-data-grid 
+                   id="headerErreurMSG"
+                   [dataSource]="headerErreurMSG"
+                   [remoteOperations]="true"
+                   [allowColumnReordering]="true"
+                   [rowAlternationEnabled]="true"
+                   [showBorders]="true"    
+                   [showColumnLines]="true"
+                    [showRowLines]="true"
+             
+                   columnResizingMode="widget"
+                   [allowColumnResizing]="true"
+                   [rowAlternationEnabled]="true"
+                   [columnHidingEnabled]="true"
+                  
+                >
+                <dxo-header-filter [visible]="true"></dxo-header-filter>
+                   
+                   <dxo-filter-row [visible]="true"  [applyFilter]="true"></dxo-filter-row>
+                   <dxo-sorting mode="multiple"></dxo-sorting>
+                   <dxi-column [width]="70" dataField="ligne" caption="{{ 'CM.ligne' | translate }}"  [visible]="true"  dataType="number" alignment="right" [allowHeaderFiltering]="false"></dxi-column>
+                   <dxi-column dataField="headerV" caption="{{ 'CM.headerv' | translate }}" [visible]="true"   dataType="string" [allowHeaderFiltering]="false" ></dxi-column>
+                   <dxi-column dataField="value" caption="{{ 'CM.values' | translate }}" [visible]="true"   dataType="string" [allowHeaderFiltering]="false" ></dxi-column>
+                   <dxi-column dataField="Evalue" caption="{{ 'CM.ErreurV' | translate }}" [visible]="true" dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+                   <dxi-column dataField="msg" caption="{{ 'CM.ErreurM' | translate }}"[visible]="true"  dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+                  
+                 
+                     <dxo-paging [pageSize]="5"></dxo-paging>
+                <!--     <dxo-pager  infoText="{{ 'CM.infoText' | translate }}" [showPageSizeSelector]="true" [visible]="true" [allowedPageSizes]="[20, 50, 100]" [showInfo]="true"></dxo-pager>
+                    -->
+               </dx-data-grid>
+                 </mat-expansion-panel>
+               </mat-accordion>
+               <br>
+                 <mat-divider ></mat-divider>
+               
+                  
+               </mat-list>
+            </div>
+            </div>
+      </div>
+            </div>
+            <div class="modal-footer">
+              <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+                  <div id="prev" style="display:inline-block" class="col-md-4">
+                      <button id="import" type="submit" class="btn btn-default btn-lg" [ngStyle]="{'display':displayStep1}" style="margin-left: 140px;border: none;">{{'CM.imp' |translate}}</button>
+                      <button id="previous" type="button" (click)="precedent()"class="btn btn-default btn-lg" style="margin-right:10px; background-color: #9796969c;" [ngStyle]="{'display':displayStep2}">{{'CM.prev' |translate}}</button>
+                      <button id="valider" type="button" (click)="valider()"class="btn btn-default btn-lg" style="border: none;" [ngStyle]="{'display':displayStep2}">{{'CM.valid' |translate}}</button>
+                      <button id="fermer" type="button" (click)="onCloseHandled()" class="btn btn-default btn-lg" style="margin-left: 140px;background-color: #9796969c;" [ngStyle]="{'display':displayStep3}">{{'CM.close' |translate}}</button>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <notifier-container></notifier-container>
+                  </div>
+                 
+              <div  id="steps"class="col-md-4" style="text-align:center;margin-top:10px;">
+                 
+                  <span id="1" class="step"></span>
+                  <span id="2" class="step"></span>
+                  <span id="3" class="step"></span>
+              
+          </div>
+          <div class="col-md-4"></div>
+			  </div>
+      </div>
+  
+    
+		</div>
+   </div>
+</div>
+
+</form>
+

@@ -1,0 +1,175 @@
+
+<form  [formGroup]="formAdd" (ngSubmit)="onSubmit(formAdd.value)" class="col-md-12">
+            <div class="row form-group">
+                   
+                        <div class="col-md-2 ">
+                                <label for="CM.nom" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.nom" | translate}}</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                                         
+                             <input  [formControl]="nom" type="text"  style="color:black;" class="form-control form-group" id="nom" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" />
+                             <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                                <div *ngIf="f.nom.errors?.required" style="font-weight: bold;font-size: medium;">{{"CM.nomVaid" | translate}}</div>  
+                             </div>
+                                           </div>
+                    <div class="col-md-2 ">
+                            <label for="email" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.email" | translate}}</label>
+                    </div>
+                    <div class="col-md-4">
+                         <input  [formControl]="email" type="text" style="color:black;" class="form-control form-group" id="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                         <div *ngIf="submitted && formAdd.get('email').errors?.email" class="invalid-feedback">
+                                <div *ngIf="formAdd.get('email').errors?.email" style="font-weight: bold;font-size: medium;">{{"CM.emailValid" | translate}}</div>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="row form-group">
+                       
+                        <div class="col-md-2 ">
+                            <label for="ContactType" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.contactType" | translate}}</label>
+                        </div>
+                        <div class="col-md-4">
+                          
+                         <ejs-dropdownlist [formControl]='contactType' [dataSource]='ListeTypeContact'  [fields]='fields' placeholder="Choisir le type de contact"></ejs-dropdownlist>
+                        </div>  
+                        <div class="col-md-2 ">
+                            <label for="organisme" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.organisme" | translate}}</label>
+                    </div>
+                    <div class="col-md-4">
+                         <input [formControl]="organisme" style="color:black;" type="text" class="form-control form-group" id="organisme">
+                    </div>   
+                </div>
+                <div class="row form-group">
+            
+                  <div class="col-md-2 ">
+                                <label for="codeDouane" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.codeDouane" | translate}}</label>
+                        </div>
+                        <div class="col-md-4">
+                             <input  [formControl]="codeDouane" style="color:black;" type="text" class="form-control form-group" id="codeDouane">
+                        </div>
+                        <div class="col-md-2 ">
+                            <label for="codePostal" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.codePostal" | translate}}</label>
+                    </div>
+                    <div class="col-md-4">
+                         <input  [formControl]="codePostal" style="color:black;" type="text" class="form-control form-group" id="codePostal">
+                        
+                    </div>
+                </div>
+            
+                <div class="row form-group">
+                  
+                        <div class="col-md-2 ">
+                                <label for="datePContact" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.datePContact" | translate}}</label>
+                        </div>
+                        <div class="col-md-4 form-group">
+                                <div class="input-group">
+                              <input   [formControl]="datePContact" style="color:black;" type="text" class="form-control" bsDatepicker #dp="bsDatepicker" placement="bottom"[bsConfig]="bsConfig">
+                              <div class="input-group-append">
+                              <button class="btn btn-secondary" (click)="dp.show()" [attr.aria-expanded]="dp.isOpen" type="button" style="background-color:#337ab7!important"><i class="fa fa-calendar" ></i></button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="fax" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.fax" | translate}}</label>
+                    </div>
+                    <div class="col-md-4">
+                         <input  [formControl]="fax" type="text" style="color:black;" class="form-control form-group" id="fax">
+                    </div>
+               
+                        
+                </div>
+                <div class="row form-group">
+              
+                        <div class="col-md-2">
+                                <label for="matriculeFiscale" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.matriculeFiscale" | translate}}</label>
+                        </div>
+                        <div class="col-md-4">
+                             <input  [formControl]="matriculeFiscale" style="color:black;" type="text" class="form-control form-group" id="matriculeFiscale">
+                        </div>
+                      
+                        <div class="col-md-2">
+                            <label for="secteurDactivite" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.secteurDactivite" | translate}}</label>
+                    </div>
+                    <div class="col-md-4">
+                        
+                            <ejs-dropdownlist  [dataSource]='listSecteurDactivite' [(value)]='valueSecteurDactivite' [fields]='fields' placeholder="Choisir le secteur d'activité"></ejs-dropdownlist>
+                   </div>
+                </div>
+            
+            
+
+                
+    <div class="row form-group">
+  
+                <div class="col-md-2">
+                        <label for="profession" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.profession" | translate}}</label>
+                </div>
+                <div class="col-md-4">
+                     <input  [formControl]="profession" style="color:black;" type="text" class="form-control form-group" id="profession">
+                </div>
+              
+                <div class="col-md-2">
+                    <label for="domaineDactivite" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.domaineDactivite" | translate}}</label>
+            </div>
+            <div class="col-md-4">
+                   
+                    <ejs-dropdownlist  [dataSource]='ListeDomaineDactivite'  [(value)]='valueDomaineDactivite'  [fields]='fields' placeholder="Choisir le domaine d'actvité"></ejs-dropdownlist>
+         </div>
+        </div>
+               <div class="row form-group">
+                 
+                       
+            
+                        <div class="col-md-2">
+                                <label for="siteWeb"style="color:black;font-weight: bold;font-size: 14px;">{{"CM.siteWeb" | translate}}</label>
+                        </div>
+                        <div class="col-md-4">
+                             <input [formControl]="siteWeb" type="text" style="color:black;" class="form-control form-group" id="siteWeb">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="telBureau" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.telBureau" | translate}}</label>
+                    </div>
+                    <div class="col-md-4">
+                         <input [formControl]="telBureau" type="text"  style="color:black;" class="form-control form-group" id="telBureau">
+                    </div>
+                </div>
+            
+            
+                <div class="row form-group">
+                        
+                  
+                        <div class="col-md-2">
+                                <label for="ville" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.ville" | translate}}</label>
+                        </div>
+                        <div class="col-md-4">
+                             <input  [formControl]="ville" type="text" style="color:black;" class="form-control form-group" id="ville">
+                        </div>
+                        <div class="col-md-2 ">
+                            <label for="adresse" style="color:black;font-weight: bold;font-size: 14px;">{{"CM.adresse" | translate}}</label>
+                        </div>
+                        <div class="col-md-4">
+                            <textarea  [formControl]="adresse" style="color:black;" class="form-control" rows="3" ></textarea>
+                        </div>
+                </div>
+            
+            
+            
+               <!-- <div class="row form-group">
+                
+              
+              </div>-->
+            
+                <div style="text-align: center">
+                            
+                            <button type="submit" class="btn btn-primary w-100p mb-1 mr-1">{{"CM.save" | translate}}</button>
+                            <button type="button" (click)="previousState()" class="btn btn-secondary  w-100p mb-1 mr-1">{{"CM.cancel" | translate}}</button>
+                        </div>
+               
+            
+            
+            
+            
+            
+            
+                    
+            </form>
+            

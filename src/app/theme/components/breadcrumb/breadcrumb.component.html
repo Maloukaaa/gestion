@@ -1,0 +1,28 @@
+<ol class="breadcrumb" *ngIf="router.url != '/'">  
+    <li *ngIf="router.url != '/'" class="breadcrumb-item">
+        <a routerLink="/" (click)="closeSubMenus()"><i class="fa fa-home mr-2"></i>{{"CM.home" | translate}}</a>
+
+    <li *ngFor="let breadcrumb of breadcrumbs; let i = index;" class="breadcrumb-item">
+  
+            <b id="Contact" *ngIf="breadcrumb.name ==' Contact'"><a (click)="closeSubMenus()" routerLink="/contact"> </a>{{"breadcrumb.0" | translate}}</b>
+            <b id="Fournisseurs" *ngIf="breadcrumb.name ==' Fournisseurs'"><a (click)="closeSubMenus()" routerLink="/contact">{{"breadcrumb.0" | translate}} {{"  "}}/ </a>{{"breadcrumb.1" | translate}}</b>
+            <b id="Clients" *ngIf="breadcrumb.name ==' Clients'"><a (click)="closeSubMenus()" routerLink="/contact">{{"breadcrumb.0" | translate}} {{"  "}}/ </a>{{"breadcrumb.2" | translate}}</b>
+            <b  id="Partenaires"*ngIf="breadcrumb.name ==' Partenaires'"><a (click)="closeSubMenus()" routerLink="/contact">{{"breadcrumb.0" | translate}} {{"  "}}/ </a>{{"breadcrumb.3"  | translate}}</b>
+            <b  id="Ajouter Contact"*ngIf="breadcrumb.name ==' Ajouter Contact'"><a (click)="closeSubMenus()" routerLink="/contact"> {{"breadcrumb.0" | translate}} {{"  "}}/</a>{{"breadcrumb.4" | translate}}</b>
+            <b id="Modifier Contact"*ngIf="breadcrumb.name ==' Modifier Contact'"><a (click)="closeSubMenus()" routerLink="/contact"> {{"breadcrumb.0" | translate}} {{"  "}}/</a>{{"breadcrumb.5" | translate}}</b>
+            <b id="Afficher Contact" *ngIf="breadcrumb.name ==' Afficher Contact'"><a (click)="closeSubMenus()" routerLink="/contact"> {{"breadcrumb.0" | translate}} {{"  "}}/</a>{{"breadcrumb.6" | translate}}</b>
+            <b id="Corbeille" *ngIf="breadcrumb.name ==' Corbeille'"><a (click)="closeSubMenus()" routerLink="/contact"> {{"breadcrumb.0" | translate}} {{"  "}}/</a> {{"menuItem.5" | translate}} {{"  "}} / {{"breadcrumb.7" | translate}}</b>
+            <b id="Corbeille Contact" *ngIf="breadcrumb.name ==' Corbeille Contact'"><a (click)="closeSubMenus()" routerLink="/contact"> {{"breadcrumb.0" | translate}} {{"  "}}/</a> Administration {{"  "}} / Corbeille {{"  "}} / {{"breadcrumb.7" | translate}}</b>
+            <b id="Corbeille Keyword" *ngIf="breadcrumb.name ==' Corbeille Keyword'"><a (click)="closeSubMenus()" routerLink="/contact"> {{"breadcrumb.0" | translate}} {{"  "}}/</a> Administration {{"  "}} / Corbeille {{"  "}} / {{"breadcrumb.13" | translate}}</b>
+            <b id="keyword" *ngIf="breadcrumb.name ==' KeyWords'"><a (click)="closeSubMenus()" routerLink="/contact"> {{"breadcrumb.0" | translate}} {{"  "}}/</a> {{"menuItem.5" | translate}} {{"  "}} / {{"breadcrumb.9" | translate}}</b>
+            <b id="Fusionner Contact" *ngIf="breadcrumb.name ==' Fusionner Contact'"><a (click)="closeSubMenus()" routerLink="/contact"> {{"breadcrumb.0" | translate}} {{"  "}}/</a>{{"breadcrumb.8" | translate}}</b>
+            <b  id="Ajouter Mot-Clé"*ngIf="breadcrumb.name ==' AddKeyWords'"><a (click)="closeSubMenus()" routerLink="/keyword"> {{'CM.KeyWord' | translate}} {{""}}/</a>{{"breadcrumb.10" | translate}}</b>
+            <b id="Modifier Mot-Clé"*ngIf="breadcrumb.name ==' EditKeyWords'"><a (click)="closeSubMenus()" routerLink="/keyword"> {{'CM.KeyWord' | translate}} {{""}}/</a>{{"breadcrumb.11" | translate}}</b>
+            <b id="Afficher Mot-Clé" *ngIf="breadcrumb.name ==' ShowKeyWords'"><a (click)="closeSubMenus()" routerLink="/keyword"> {{'CM.KeyWord' | translate}} {{""}}/</a>{{"breadcrumb.12" | translate}}</b>
+            
+            <!--<a [hidden]="i == (breadcrumbs.length - 1)" [routerLink]="[breadcrumb.url]">{{breadcrumb.name}}</a>          
+        <span [hidden]="i != (breadcrumbs.length - 1)"><i *ngIf="router.url == '/'" class="fa fa-home mr-2"></i><b>{{breadcrumb.name}}</b></span>-->
+    </li>
+
+</ol>
+

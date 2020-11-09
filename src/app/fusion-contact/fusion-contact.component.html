@@ -1,0 +1,173 @@
+
+
+
+<meta charset='utf-8'>
+<form #formFusion="ngForm" class="col-md-12">
+    <div class="row form-group">
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Id</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='ddlelement' [dataSource]='datasId' [(value)]='value' [fields]='fields' placeholder="choisir l'id"></ejs-dropdownlist>
+            
+        </div>
+     <!--   <input type="text"   [(ngModel)]="value" [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />-->
+       <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Nom</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist [locale]="ar-AE" enablertl=true id='nom' [dataSource]='datasNom' [(value)]='valueNom' [fields]='fields' placeholder='Choisir le nom'></ejs-dropdownlist>
+                   
+        </div>  
+      <!--  <input type="text"  [(ngModel)]="valueNom"  [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />   -->
+    </div>
+
+  <div class="row form-group">
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Adresse</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='adresse' [dataSource]='datasAdresse' [(value)]='valueAdresse' [fields]='fields' placeholder="Choisir l'adresse"></ejs-dropdownlist>
+          <!--  <input type="text"   [(ngModel)]="valueAdresse" [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />-->
+        </div>
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Code Postal</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='codePostal' [dataSource]='datasCodePostal' [(value)]='valueCodePostal' [fields]='fields' placeholder='Choisir le code postal'></ejs-dropdownlist>
+            <!--<input type="text"  [(ngModel)]="valueCodePostal"  [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />     -->   
+        </div>     
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Date du premier Contact</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='datePContact' [dataSource]='datasDatePC' [(value)]='valueDatePC' [fields]='fields' placeholder='Choisir la date du premier Contact'></ejs-dropdownlist>
+          <!--  <input type="text"   [(ngModel)]="valueDatePC" [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />-->
+        </div>
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Email</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='email' [dataSource]='datasEmail' [(value)]='valueEmail' [fields]='fields' placeholder="Choisir l'email"></ejs-dropdownlist>
+         <!--   <input type="text"  [(ngModel)]="valueEmail"  [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />  -->      
+        </div>     
+    </div>
+
+    <div class="row form-group">
+            <div class="col-md-2">
+                <label style="font-weight: bold;font-size: 14px;">Organisme</label>
+            </div>
+            <div class="col-md-4">
+                <ejs-dropdownlist id='organisme' [dataSource]='datasOrganisme' [(value)]='valueOrganisme' [fields]='fields' placeholder="Choisir l'organisme"></ejs-dropdownlist>
+             <!--   <input type="text"   [(ngModel)]="valueDatePC" [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />-->
+            </div>
+            <div class="col-md-2">
+                <label style="font-weight: bold;font-size: 14px;">Code Douane</label>
+            </div>
+            <div class="col-md-4">
+                <ejs-dropdownlist id='codeDouane' [dataSource]='datasCodeDouane' [(value)]='valueCodeDouane' [fields]='fields' placeholder='Choisir le site'></ejs-dropdownlist>
+              <!--  <input type="text"   [(ngModel)]="valueCodeDouane" [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />   -->
+            </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Fax</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='fax' [dataSource]='datasFax' [(value)]='valueFax' [fields]='fields' placeholder='Choisir le fax'></ejs-dropdownlist>
+         <!--  <input type="text"   [(ngModel)]="valueFax" [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />--> 
+        </div>
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Tél. Bureau</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='telBureau' [dataSource]='datasTelBureau' [(value)]='valueTelBureau' [fields]='fields' placeholder='Choisir le tél. bureau'></ejs-dropdownlist>
+         <!--   <input type="text"  [(ngModel)]="valueTelBureau"  [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />   -->     
+        </div>     
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Matricule Fiscale</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='matriculeFiscale' [dataSource]='datasMatriculeFiscale' [(value)]='valueMatriculeFiscale' [fields]='fields' placeholder='Choisir la matricule fiscale'></ejs-dropdownlist>
+           <!-- <input type="text"   [(ngModel)]="valueMatriculeFiscale" [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />-->
+        </div>
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Secteur d'activité</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='secteurDactivite' [dataSource]='datasSecteurDactivite' [(value)]='valueSecteurDactivite' [fields]='fields' placeholder="Choisir le secteur d'activité"></ejs-dropdownlist>
+           <!-- <input type="text"  [(ngModel)]="valueSecteurDactivite"  [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />     -->   
+        </div>     
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Profession</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='profession' [dataSource]='datasProfession' [(value)]='valueProfession' [fields]='fields' placeholder='Choisir la profession'></ejs-dropdownlist>
+         <!--  <input type="text"   [(ngModel)]="valueProfession" [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />--> 
+        </div>
+         <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Domaine d'activité</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='domaineDactivite' [dataSource]='datasDomaineDactivite' [(value)]='valueDomaineDactivite' [fields]='fields' placeholder="Choisir le domaine d'actvité"></ejs-dropdownlist>
+         <!--   <input type="text"  [(ngModel)]="valueDomaineDactivite"  [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />    -->    
+        </div>     
+    </div>
+    
+    <div class="row form-group">
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Contact Type</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='contactType' [dataSource]='datasContactType' [(value)]='valueContactType' [fields]='fields' placeholder='Choisir le type'></ejs-dropdownlist>
+         <!--   <input type="text"   [(ngModel)]="valueContactType" [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />-->
+        </div>
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Ville</label>
+        </div>
+        <div class="col-md-4">
+            <ejs-dropdownlist id='ville' [dataSource]='datasVille' [(value)]='valueVille' [fields]='fields' placeholder='Choisir la ville'></ejs-dropdownlist>
+        <!--    <input type="text"  [(ngModel)]="valueVille"  [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />  -->      
+        </div>     
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-2">
+            <label style="font-weight: bold;font-size: 14px;">Site Web</label>
+        </div>
+        <div class="col-md-10">
+            <ejs-dropdownlist id='siteWeb' [dataSource]='datasSite' [(value)]='valueSite' [fields]='fields' placeholder='Choisir le site'></ejs-dropdownlist>
+        <!--   <input type="text"   [(ngModel)]="valueSite" [ngModelOptions]="{standalone: true}"  style="width:245px;height:25px" hidden />   --> 
+        </div>
+    </div>
+       
+           
+        
+<br>
+    <div style="text-align: center">
+        <button type="button" (click)="setForm()" class="btn btn-primary w-100p mb-1 mr-1">Fusionner</button>
+        <button type="button" (click)="previousState()" class="btn btn-secondary  w-100p mb-1 mr-1">{{"CM.cancel" | translate}}</button>
+    </div>
+
+</form>
+<ngx-spinner
+bdOpacity = 1
+bdColor = "rgba(165,170,171,0.81)"
+size = "medium"
+color = "#07a5ba"
+type = "ball-spin-fade"
+[fullScreen] = "true"
+>
+<p style="color: white;font-size:medium" > {{'CM.Loading' | translate}}... </p>
+</ngx-spinner>
+
+            

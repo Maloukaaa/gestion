@@ -1,0 +1,56 @@
+<app-import-modal ></app-import-modal>
+
+<dx-data-grid id="gridContainer"
+    [dataSource]="ContactFournisseur"
+    [remoteOperations]="true"
+    [allowColumnReordering]="true"
+    [rowAlternationEnabled]="false"
+    (onToolbarPreparing)="onToolbarPreparing($event)"
+    (onSelectionChanged)="selectionChanged($event)"
+    (onContentReady)="contentReady($event)"
+    [showBorders]="true"
+    columnResizingMode="widget"
+    [allowColumnResizing]="true"
+    [rowAlternationEnabled]="true"
+    [columnHidingEnabled]="true">
+    <dxo-header-filter [visible]="true"></dxo-header-filter>
+    <dxo-column-chooser [enabled]="true" mode="select"></dxo-column-chooser>
+    <dxo-filter-row [visible]="true"  [applyFilter]="true"></dxo-filter-row>
+    <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+    <dxo-sorting mode="multiple"></dxo-sorting>
+   <!-- <dxo-header-filter [visible]="true"  ></dxo-header-filter> --><!-- [dataSource]="saleAmountHeaderFilter" -->
+    <dxo-load-panel [enabled]="true"></dxo-load-panel>
+    <dxi-column [width]="80" dataField="id" caption="{{ 'CM.id' | translate }}"   [visible]="true" dataType="number" alignment="right" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="nom" caption="{{ 'CM.nom' | translate }}"  [visible]="true"  dataType="string" [allowHeaderFiltering]="false" ></dxi-column>
+    
+    <dxi-column dataField="email" caption="{{ 'CM.email' | translate }}" [visible]="true"  dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="adresse" caption="{{ 'CM.adresse' | translate }}" [visible]="false"  dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="organisme" caption="{{ 'CM.organisme' | translate }}" [visible]="true" dataType="string">
+        <dxo-header-filter [allowSearch]="true" [dataSource]="ListeO"></dxo-header-filter>
+    </dxi-column>
+    <dxi-column dataField="profession" caption="{{ 'CM.profession' | translate }}" [visible]="false" dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="domaineDactivite" caption="{{ 'CM.domaineDactivite' | translate }}" [visible]="false" dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="codeDouane" caption="{{ 'CM.codeDouane' | translate }}"  [visible]="false" dataType="string"[allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="codePostal" caption="{{ 'CM.codePostal' | translate }}"  [visible]="false" dataType="number" alignment="right" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="datePContact" caption="{{ 'CM.datePContact' | translate }}" [visible]="false" dataType="date"   format="dd/MM/yyyy" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="fax" caption="{{ 'CM.fax' | translate }}" dataType="string" [visible]="true" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="matriculeFiscale" caption="{{ 'CM.matriculeFiscale' | translate }}" [visible]="false"  dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="contactType" caption="{{ 'CM.contactType' | translate }}" [visible]="true"  dataType="string" [allowHeaderFiltering]="false"></dxi-column> 
+    <dxi-column dataField="secteurDactivite" caption="{{ 'CM.secteurDactivite' | translate }}" [visible]="false"  dataType="string"  >
+        <dxo-header-filter [allowSearch]="true" [dataSource]="ListeS"></dxo-header-filter>
+    </dxi-column>
+    <dxi-column dataField="siteWeb" caption="{{ 'CM.siteWeb' | translate }}" [visible]="false" dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="telBureau" caption="{{ 'CM.telBureau' | translate }}" [visible]="true"  dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column dataField="ville" caption="{{ 'CM.ville' | translate }}"  [visible]="true" dataType="string" [allowHeaderFiltering]="false"></dxi-column>
+    <dxi-column [width]="80" caption="{{ 'CM.action' | translate }}" [visible]="true" cellTemplate="cellTemplate" [allowHeaderFiltering]="false"></dxi-column>
+    <div *dxTemplate="let data of 'cellTemplate'">
+        <a (click)="goShow(this,data.data.id)" rel="noopener" style="margin-right: 10px;" ><i class="fa fa-eye" title="{{'CM.afficher' | translate}}"></i></a>    
+        <a (click)="goEdit(this,data.data.id)"  rel="noopener"style="margin-right: 10px;"><i class="fa fa-pencil-square-o" title="{{'CM.modifier' | translate}}" [id]="data.data.id" *ngIf="checkEdit(data.data.authors)==true" ></i></a>
+        <a (click)="deleteContactbyput(data.data.id)"  rel="noopener" ><i class="fa fa-trash" *ngIf="canDelete(data.data.authors)==true" title="{{'CM.supprimer' | translate}}"></i></a>
+    </div>
+    <dxo-search-panel [visible]="true" [width]="240" placeholder="{{ 'CM.search' | translate }}"  ></dxo-search-panel>
+      <dxo-paging [pageSize]="20"></dxo-paging>
+      <dxo-pager  infoText="{{ 'CM.infoText' | translate }}" [showPageSizeSelector]="true" [visible]="true" [allowedPageSizes]="[20, 50, 100]" [showInfo]="true"></dxo-pager>
+      <dxo-export [enabled]="true" fileName="Contact"  [allowExportSelectedData]="true" *ngIf="canExport()==true"></dxo-export>
+      <dxo-selection mode="multiple"  [deferred]="true"></dxo-selection>   
+</dx-data-grid>
